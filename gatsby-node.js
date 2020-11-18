@@ -5,17 +5,29 @@ exports.createPages = async ({ graphql, actions }) => {
   {
     allContentfulProducts {
       nodes {
+        title
+        price
         slug
+        images {
+          fluid {
+            src
+          }
+        }
+        info {
+          info
+        }
       }
     }
   }
 `)
   result.data.allContentfulProducts.nodes.forEach(products => {
-      path: `/products/${products.slug}`
-      component: path.resolve('./src/templates/productTemplates.js')
+    createPage({
+      path: `/products/${products.slug}`,
+      component: path.resolve('./src/templates/productTemplates.js'),
       context: {
-        slug: products.slug
+        products: products
       }
+    })
   });
-  console.log('Result ........ , ',JSON.stringify(result));
+  console.log('Result ........ , ', JSON.stringify(result));
 }
