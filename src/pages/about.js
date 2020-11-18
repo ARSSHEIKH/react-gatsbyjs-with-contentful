@@ -6,8 +6,7 @@ export default function About() {
         <div>
             
             <Layout>
-                <h1>Hello About!</h1>
-                <h3>Hi! My name is Arsalan</h3>               
+                <h1>About</h1>              
             </Layout>
         </div>
     )

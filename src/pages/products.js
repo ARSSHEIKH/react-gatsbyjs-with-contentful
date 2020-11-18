@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../Components/Layout"
 import { graphql, Link } from "gatsby"
-
+// import Img from "gatsby-image"
 
 const Products = ({ data:{allContentfulProducts:{nodes}} }) => {
      return (

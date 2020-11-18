@@ -1,44 +1,21 @@
 import React from "react"
 import Layout from "../Components/Layout"
-import { graphql, Link } from "gatsby"
 
-// Chloe Deee and Brooklyn blue
-const ProductTemplates = ({ data: { allContentfulProducts: { nodes } } }) => {
+const ProductTemplates = ({ pageContext: { products } }) => {
+  console.log('props', products);
   return (
-    <div>
-      <Layout>
-        <h1>Products!</h1>
-        <section style={{ display: 'flex', justifyContent: 'space-around' }}>
+    <Layout>
+      <h3>Product Details</h3>
+      <section style={{display:'flex', justifyContent:'center', flexFlow:'column', alignItems:'center'}}>
 
-          <article key={product.id}>
-            <h2>{product.title}</h2>
-            <img src={product.images.fluid.src} alt={product.title} width={200} height={200} />
-            <p>Rs. {product.price}</p>
-            <p>{product.info.info}</p>
-          </article>
+        <h2>{products.title}</h2>
+        <img src={products.images.fluid.src} alt={products.title} width={200} height={200} />
+        <p>{products.info.info}</p>
+        <p>Rs. {products.price}</p>
 
-        </section>
-      </Layout>
-    </div>
+      </section>
+    </Layout>
   )
 }
-export const query = graphql`
-{
-  allContentfulProducts {
-    nodes {
-      id
-      title
-      price
-      info {
-        info
-      }
-      images {
-        fluid {
-          src
-        }
-      }
-    }
-  }
-}
-`
+
 export default ProductTemplates
