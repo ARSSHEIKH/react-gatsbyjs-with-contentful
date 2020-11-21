@@ -1,0 +1,11 @@
+.secProjects
+{
+   display: flex;
+   flex-direction: row;
+   flex: 3;
+   flex-wrap: wrap;
+}
+.artiProjects{
+    justify-content: space-around;
+    flex: 3;
+}

@@ -1,5 +1,17 @@
 .navBarLinks{
-    
-    color: black;
+    display: flex;
+    list-style: none;
+
+}
+.Links{
+    text-decoration: none;
+    color: ivory;
     font-weight: bold;
+}
+.Links:hover{
+    text-decoration: underline;
+
+}
+.navBarLinks>li{
+    padding: 10px;
 }

@@ -14,10 +14,14 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Fade from '@material-ui/core/Fade';
+import { Link } from "gatsby"
+import navBar from "./navbar.css"
+import {FuncSearch} from './FuncSearch';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 1,
+    flexGrow: 3,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -27,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    fontWeight: 'Bold',
+    // marginLeft: 0,
+    paddingLeft: 20,
+    paddingRight: 20
   },
   search: {
     position: 'relative',
@@ -35,11 +43,10 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
+    marginRight: theme.spacing(1),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
+      marginLeft: theme.spacing(40),
       width: 'auto',
     },
   },
@@ -84,6 +91,8 @@ export default function NavBar2() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
+  const [anchorEl1, setAnchorEl1] = React.useState(null);
+  const open = Boolean(anchorEl1);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -116,7 +125,9 @@ export default function NavBar2() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link to="https://my-ebookstore.web.app/signup.html"> My account </Link>
+      </MenuItem>
     </Menu>
   );
 
@@ -160,7 +171,12 @@ export default function NavBar2() {
       </MenuItem>
     </Menu>
   );
-
+  const handleClose = () => {
+    setAnchorEl1(null);
+  };
+  const handleClick = (event) => {
+    setAnchorEl1(event.currentTarget);
+  };
   return (
     <div className={classes.grow}>
       <AppBar position="static">
@@ -171,22 +187,57 @@ export default function NavBar2() {
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+            <MenuIcon aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
+              
+            </MenuIcon>
+            <Menu
+              id="fade-menu"
+              anchorEl1={anchorEl1}
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              TransitionComponent={Fade}
+            >
+          <MenuItem onClick={handleClose}>
+          <Link style={{color:"black"}} className="Links" to="/">Home</Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+          <Link style={{color:"black"}} className="Links" to="/Blog">Blog</Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+          <Link style={{color:"black"}} className="Links" to="/projects">Projects</Link>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+          <Link style={{color:"black"}} className="Links" to="/products">Product</Link>
+          </MenuItem>
+        </Menu>
+          {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem> */}
+
+   
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+          <Typography className={classes.title} style={{paddingLeft: '70px', paddingRigt: '70px', marginLeft:"-50px", borderRight: "3px solid red"}} variant="h7" noWrap>
+            Portfolio
+          </Typography>
+          <Typography className={classes.title} variant="h7" noWrap>
+          <ul className="navBarLinks">
+            <li><Link className="Links" to="/">Home</Link></li>
+            <li><Link className="Links" to="/Blog">Blog</Link></li>
+            <li><Link className="Links" to="/projects">Projects</Link></li>
+            <li><Link className="Links" to="/products">Product</Link></li>
+          </ul>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
+            <InputBase placeholder="Search…" classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              onChange={FuncSearch}
             />
           </div>
           <div className={classes.grow} />
