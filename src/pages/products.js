@@ -26,7 +26,7 @@ const Products = ({ data:{allContentfulProducts:{nodes}} }) => {
   )
 }
 
-export const query = graphql`
+export const queryProducts = graphql`
 {
     allContentfulProducts {
       nodes {
