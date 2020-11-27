@@ -12,11 +12,30 @@ function About({ data:{allContentfulProjects:{nodes}} }) {
                 <h1>Projects</h1>       
                 <section className="secProjects">
                     {nodes.map(projects => {
+                        if(projects.title == "Simple Calculator" || projects.title == "Quiz App" || projects.title == "eBooks Store" || projects.title == "Todo App"){
+                            return(
+                                <article id={projects.id} key={projects.id} className="artiProjects">
+                                    
+                                    <Link to={`/projects/${projects.slug}`} className="LnkProjects">
+                                        <div className="dvProjectItems">
+                                            <h4>{projects.title}</h4>
+                                            <b style={{color: "gray"}}>Under Development</b>
+                                            <img src={projects.images.fluid.src} alt={projects.title} width={200} height={200}/><br/>
+                                        </div>
+                                    </Link>
+                                    
+                                </article>
+                            )
+                        }
                         return(
                             <article key={projects.id} className="artiProjects">
-                                <h4>{projects.title}</h4>
-                                <img src={projects.images.fluid.src} alt={projects.title} width={200} height={200}/><br/>
-                                <Link to={`/projects/${projects.slug}`}>More Info</Link>
+                                <Link to={`/projects/${projects.slug}`} className="LnkProjects">
+                                    <div className="dvProjectItems">
+                                        <h4>{projects.title}</h4>
+                                        <img src={projects.images.fluid.src} alt={projects.title} width={200} height={200}/><br/>
+                                    </div>
+                                </Link>
+                                    
                             </article>
 
                         )

@@ -45,8 +45,8 @@ const useStyles = makeStyles((theme) => ({
     },
     marginRight: theme.spacing(1),
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(40),
+    [theme.breakpoints.up('md')]: {
+      marginLeft: theme.spacing(0),
       width: 'auto',
     },
   },
@@ -202,7 +202,7 @@ export default function NavBar2() {
           <Link style={{color:"black"}} className="Links" to="/">Home</Link>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-          <Link style={{color:"black"}} className="Links" to="/Blog">Blog</Link>
+          <Link style={{color:"black"}} className="Links" to="/Skills">Skills</Link>
           </MenuItem>
           <MenuItem onClick={handleClose}>
           <Link style={{color:"black"}} className="Links" to="/projects">Projects</Link>
@@ -223,7 +223,7 @@ export default function NavBar2() {
           <Typography className={classes.title} variant="h7" noWrap>
           <ul className="navBarLinks">
             <li><Link className="Links" to="/">Home</Link></li>
-            <li><Link className="Links" to="/Blog">Blog</Link></li>
+            <li><Link className="Links" to="/Skills">Skills</Link></li>
             <li><Link className="Links" to="/projects">Projects</Link></li>
             <li><Link className="Links" to="/products">Product</Link></li>
           </ul>
@@ -240,8 +240,8 @@ export default function NavBar2() {
               onChange={FuncSearch}
             />
           </div>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
+          {/* <div className={classes.grow} /> */}
+          {/* <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
@@ -262,8 +262,8 @@ export default function NavBar2() {
             >
               <AccountCircle />
             </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
+          </div> */}
+          {/* <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -273,7 +273,7 @@ export default function NavBar2() {
             >
               <MoreIcon />
             </IconButton>
-          </div>
+          </div> */}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
