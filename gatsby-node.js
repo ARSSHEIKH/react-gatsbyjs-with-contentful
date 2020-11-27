@@ -33,7 +33,6 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       });
     });
-    console.log('Result ........ , ', JSON.stringify(result));
   }
   async function forProjects() {
     const result = await graphql(`
