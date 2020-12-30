@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{w2l6:function(e,t,n){"use strict";n.r(t),n.d(t,"default",(function(){return s}));var a=n("q1tI"),r=n.n(a);function s(){return r.a.createElement("div",{className:"dvMain404"},r.a.createElement("img",{alt:"404 gif",src:"https://freefrontend.com/assets/img/html-css-404-page-templates/Simple-Pure-CSS3-404-Error-Page.gif"}),r.a.createElement("h1",null,"Page not Found"))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-b3728dc72e3b6dc19f1a.js.map
