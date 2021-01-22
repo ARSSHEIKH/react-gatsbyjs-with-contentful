@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{RXBc:function(n,e,t){"use strict";t.r(e),t.d(e,"default",(function(){return u}));var a=t("q1tI"),l=t.n(a),r=t("JLE3");function u(){return l.a.createElement("div",null,l.a.createElement(r.a,null,l.a.createElement("h1",null,"Hi! My Name is Arsalan")))}}}]);
-//# sourceMappingURL=component---src-pages-index-js-ee6cb83b652cc208be4b.js.map
